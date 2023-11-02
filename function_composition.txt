@@ -1,0 +1,32 @@
+/**
+ * @param {Function[]} functions
+ * @return {Function}
+ */
+var compose = function(functions) {
+    
+	
+
+      if (functions.length === 0) {
+    // If the array is empty, return the identity function
+    return function(x) {
+      return x;
+    };
+  } else if (functions.length === 1) {
+    // If there is only one function in the array, return it
+    return functions[0];
+  } else {
+    // Use reduce to perform function composition
+return functions.reduce((fn1, fn2) => (x) => fn1(fn2(x)));
+  }
+}
+
+//   const composedFunction = functions.reduce(compose);
+
+//   return compose;
+
+
+
+/**
+ * const fn = compose([x() => x + 1, x => 2 * x])
+ * fn(4) // 9
+ */
